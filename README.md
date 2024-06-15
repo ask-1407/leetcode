@@ -1,0 +1,2 @@
+# leetcode
+LeetCodeを解くためのリポジトリ
