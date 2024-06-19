@@ -69,3 +69,23 @@ class Solution:
 かかった時間：3min
 
 3回トライしていずれも1分程度、問題なくAcceptできた。
+
+
+# Reviewを受けての追記
+## set(Hash Table)を使う解法
+  - 訪れたことがあるノードをsetに格納していく。入れる値はノードの参照(メモリアドレス)
+  - 追加を試みたノードがすでに入っている＝循環しているよねという考え
+- 実装の考え
+  - 訪れたノードを格納する`set`の変数をまず用意
+  - ノードをHashTableに格納し、現在のノードを隣へ更新。
+  - 更新値がHashTableの要素に入っていたら`True`
+  - これをノードが空になるまで繰り返す。最終的には`False`を返す
+  
+
+## コードの書き方
+- `while fast is not None and fast.next is not None:`は以下でも等価
+  - `while fast and fast.next is not None:`
+  - https://github.com/ask-1407/leetcode/pull/2#discussion_r1646277966
+- `if head is None:`は以下でも等価
+  - `if not head`　
+  - https://github.com/ask-1407/leetcode/pull/2#discussion_r1646277406
