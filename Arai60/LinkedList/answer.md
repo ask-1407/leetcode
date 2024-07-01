@@ -103,26 +103,28 @@ class Solution:
 ```
 
 # Step 4 
-レビューを持って修正を行う
+- レビューを持って修正を行う
 
+- Hash Setを用いた解法
 ```python
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
             return None
-
         node=head
         visited=set() 
 
-        while node:
+        while node :
             if node in visited:
-            visited.add(temnodep_node)
+                return node
+            visited.add(node)
             node = node.next
         return None
+
 ```
 
 
-
+- フロイドの循環検知法
 ```python
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -136,10 +138,11 @@ class Solution:
         else:
             return None
 
-        fast = head
-        while fast != slow:
-            fast = fast.next
-            slow = slow.next
+        start_of_cycle = head
+        collision_point = slow
+        while start_of_cycle != collision_point:
+            start_of_cycle = start_of_cycle.next
+            collision_point = collision_point.next
 
-        return slow
+        return collision_point
 ```
