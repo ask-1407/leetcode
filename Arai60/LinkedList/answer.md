@@ -53,7 +53,6 @@ class Solution:
             visited.add(temp_node)
             temp_node = temp_node.next
         return None
-
 ```
 
 - フロイドの循環検出法を実装したがTLE。解法をみた(下記は通らなかった実装)
@@ -83,10 +82,52 @@ class Solution:
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
-            return Non
+            return None
         slow = head
         fast = head
 
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                break
+        else:
+            return None
+
+        fast = head
+        while fast != slow:
+            fast = fast.next
+            slow = slow.next
+
+        return slow
+```
+
+# Step 4 
+レビューを持って修正を行う
+
+```python
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+
+        node=head
+        visited=set() 
+
+        while node:
+            if node in visited:
+            visited.add(temnodep_node)
+            node = node.next
+        return None
+```
+
+
+
+```python
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow = head
+        fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
