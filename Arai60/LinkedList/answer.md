@@ -50,8 +50,8 @@ class Solution:
 
         while temp_node:
             if temp_node in visited:
-            visited.add(temp_node)
-            temp_node = temp_node.next
+                visited.add(temp_node)
+                temp_node = temp_node.next
         return None
 ```
 
