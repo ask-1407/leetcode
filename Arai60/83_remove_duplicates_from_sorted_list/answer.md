@@ -73,9 +73,8 @@ class Solution:
 ```
 
 # Step3
-かかった時間： min
-
-
+かかった時間： 5min
+ほぼStep1のコード。何回か消しては下記を行った。
 ```python
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
