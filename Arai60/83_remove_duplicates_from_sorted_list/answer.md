@@ -92,8 +92,31 @@ class Solution:
 
 # Step 4 
 - レビューを持って修正を行う
+  - Step3記載の冒頭のifはwhileで見れているのでいらない
 
 ```python
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+                
+        current_node = head
+        while current_node and current_node.next:
+            if current_node.val == current_node.next.val:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
+        return head
+```
+- 再帰に関しては冒頭で関数Call⇒If判定ではなく、分岐事に関数Callのほうがわかりやすい
 
+```python
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return head
 
+        if head.val == head.next.val:
+            head = self.deleteDuplicates(head.next)
+        else:
+            head.next = self.deleteDuplicates(head.next)
+        return head
 ```
