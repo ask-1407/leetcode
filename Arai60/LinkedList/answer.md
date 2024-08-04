@@ -96,11 +96,29 @@ class Solution:
 # Step3
 かかった時間：5min
 
-step2を何回か書き直してSubした
+step2(iterative)を何回か書き直してSubした
 # Step 4 
 - レビューを持って修正を行う
+- while に`carry`を追加
+- 変数名変更(`l1_val` -> `v1` ,`l2_val` -> `v2`, `sum_node` -> `total`)
 
 ```python
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        dummyHead = ListNode(0)
+        current = dummyHead
+        carry = 0
+        
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+            total = carry + v1 + v2
+            carry = total // 10
+            current.next = ListNode(total % 10) 
+            current = current.next
+            
+            if l1: l1 = l1.next
+            if l2: l2 = l2.next
 
-
+        return dummyHead.next
 ```
